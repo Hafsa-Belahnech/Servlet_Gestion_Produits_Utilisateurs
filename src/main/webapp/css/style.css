@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    /* Base dark colors (Charcoal / Obsidian) instead of blue */
+    --bg-dark: #121212; 
+    --panel-bg: rgba(30, 30, 32, 0.75); 
+    --panel-border: rgba(217, 70, 239, 0.15); /* Subtle pink/purple border */
+    --text-main: #F3F4F6;
+    --text-muted: #9CA3AF;
+    
+    /* Vibrant Gradient Accents (Purple to Pink) */
+    --accent-glow: #d946ef; /* Fuchsia */
+    --accent-glow-secondary: #8b5cf6; /* Violet */
+    --gradient-primary: linear-gradient(135deg, #8b5cf6, #d946ef);
+    --gradient-hover: linear-gradient(135deg, #7c3aed, #c026d3);
+    
+    --success-glow: #10b981;
+    --danger-glow: #f43f5e;
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* Subtle background gradient overlay */
+    background-image: radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.05), transparent 25%),
+                      radial-gradient(circle at 85% 30%, rgba(217, 70, 239, 0.05), transparent 25%);
+    background-attachment: fixed;
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography links */
+a {
+    color: var(--accent-glow);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px var(--accent-glow);
+    text-decoration: none;
+}
+
+/* Navbar styling overrides */
+.navbar {
+    background: rgba(18, 18, 18, 0.85) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--panel-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.5px;
+    /* Optional shadow for gradient text is tricky, we drop it for cleanliness */
+}
+
+.nav-link {
+    color: var(--text-main) !important;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-glow) !important;
+    text-shadow: 0 0 10px rgba(217, 70, 239, 0.5);
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+    background-color: #1a1a1c;
+    border: 1px solid var(--panel-border);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.9);
+}
+
+.dropdown-item {
+    color: var(--text-main);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(217, 70, 239, 0.1);
+    color: var(--accent-glow);
+}
+
+/* Container spacing for main content to fill viewport */
+.container.mt-4 {
+    flex: 1 0 auto;
+}
+
+/* Footer styling */
+footer.bg-dark {
+    background: rgba(18, 18, 18, 0.9) !important;
+    border-top: 1px solid var(--panel-border);
+    color: var(--text-muted) !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Jumbotron (Index page) */
+.jumbotron {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    padding: 3rem 2rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add a sleek top gradient border to jumbotron */
+.jumbotron::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+}
+
+.jumbotron .display-4 {
+    font-weight: 600;
+    color: var(--text-main);
+}
+.jumbotron .display-4 span {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Cards */
+.card {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(139, 92, 246, 0.2);
+    border-color: rgba(217, 70, 239, 0.3);
+}
+
+.card-header {
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--panel-border);
+    font-weight: 500;
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.35);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--gradient-hover);
+    box-shadow: 0 0 20px rgba(217, 70, 239, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #059669, #10b981);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    color: #fff;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #047857, #059669);
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #e11d48, #f43f5e);
+    box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #be123c, #e11d48);
+    box-shadow: 0 0 15px rgba(251, 113, 133, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+}
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+/* Tables */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin-top: 1rem;
+    color: var(--text-main);
+}
+
+.table-bordered {
+    border: none;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.thead-dark th {
+    background-color: rgba(20, 20, 22, 0.95) !important;
+    color: var(--accent-glow);
+    border-color: var(--panel-border) !important;
+    font-weight: 600;
+}
+
+.table tbody tr {
+    background-color: var(--panel-bg);
+    transition: all 0.2s;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(139, 92, 246, 0.08);
+    box-shadow: inset 0 0 15px rgba(217, 70, 239, 0.05);
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Form Styles */
+.form-control {
+    background-color: rgba(20, 20, 22, 0.8);
+    border: 1px solid var(--panel-border);
+    color: var(--text-main);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background-color: rgba(20, 20, 22, 1);
+    border-color: var(--accent-glow);
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(217, 70, 239, 0.25);
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+/* Page Titles */
+h2 {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+hr {
+    border-color: var(--panel-border);
+}
+
+/* Utility to apply gradient text to specific icons or text */
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
