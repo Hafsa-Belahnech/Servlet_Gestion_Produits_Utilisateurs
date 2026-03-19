@@ -1,4 +1,4 @@
-#  Gestion de Stock & Utilisateurs (Jakarta EE 10 / Hibernate)
+#  Gestion de Stock & Utilisateurs (Jakarta EE / Hibernate)
 
 Application Java EE robuste basée sur une architecture **n-tiers**, utilisant **Hibernate** pour la persistance des données et déployée sur **Tomcat 10**.
 
